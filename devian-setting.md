@@ -81,12 +81,30 @@ sudo bash kube_install.sh
 kubeadm version
 ```
 ## 4. 넷필터 설치
-
+- 도커 설치하면 자동으로 되는데 컨테이너-D 설치라 직접 해야함
 ```
 sudo -i
 modprobe br_netfilter
 echo 1 > /proc/sys/net/ipv4/ip_forward
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
 exit
+
 ```
 
+## 5. 마스터 노드
+```
+sudo kubeadm init
+
+# 에러 발생시
+sudo rm /etc/containerd/config.toml // disabled_plugins = ["cri"]라는 줄 삭제
+sudo systemctl restart containerd
+sudo kubeadm init
+
+# 워커노드 JOIN 발생시 동일
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
+
+```
+
+
+## 6. 워커 노드
