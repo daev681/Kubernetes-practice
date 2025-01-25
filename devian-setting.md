@@ -105,9 +105,12 @@ sudo rm /etc/containerd/config.toml
 sudo systemctl restart containerd
 
 # 설치 후 결과
-
 Your Kubernetes control-plane has initialized successfully!
 
+```
+
+### 초기 설정
+```
 # 1) 유저 설정
 To start using your cluster, you need to run the following as a regular user:
 
@@ -129,9 +132,15 @@ Then you can join any number of worker nodes by running the following on each as
 
 kubeadm join IP:포트 --token~ \
         --discovery-token-ca-cert-hash sha256:~~~
-
-
 ```
 
+### 네트워크 설정
+```
+curl -LO https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz
+sudo tar xzvfC cilium-linux-amd64.tar.gz /usr/local/bin
+rm cilium-linux-amd64.tar.gz
+cilium install
+
+```
 
 ## 6. 워커 노드
