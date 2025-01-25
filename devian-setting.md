@@ -104,6 +104,33 @@ sudo kubeadm init
 sudo rm /etc/containerd/config.toml
 sudo systemctl restart containerd
 
+# 설치 후 결과
+
+Your Kubernetes control-plane has initialized successfully!
+
+# 1) 유저 설정
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+# 2) 파드 네트워크 설정
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+# 3) 워커 노드 조인 방법
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join IP:포트 --token~ \
+        --discovery-token-ca-cert-hash sha256:~~~
+
+
 ```
 
 
