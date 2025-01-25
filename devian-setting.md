@@ -80,3 +80,13 @@ sudo bash kube_install.sh
 # 설치된 kubeadm 버전 확인
 kubeadm version
 ```
+## 4. 넷필터 설치
+
+```
+sudo -i
+modprobe br_netfilter
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+exit
+```
+
