@@ -40,10 +40,20 @@ spec:
     ports:
     - containerPort: 8080
 ```
-2. 파드 생성 , 상세 조회
+2. 파드 생성 , 상세 조회 , 포트포워딩
 ```
 kubectl create -f go-http-pod.yaml
-kubectl get pod http-go -o yaml
+kubectl get pod http-go -o yaml // 파드 상세 조회
+kubectl port-forward http-go 8080 // 포트포워딩
+kubectl delete -f go-http-pod.yaml // 파드 삭제
+kubectl logs http-go // 파드 로그 조회
+kubectl annotate pod http-go // 주석 넣기
 
+
+
+kubectl explain pods // 파드 정보
 ```
+
+![image](https://github.com/user-attachments/assets/2b52d007-5f2f-4ea2-98c3-439c86684eab)
+
   
