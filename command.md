@@ -54,6 +54,4 @@ kubectl annotate pod http-go // 주석 넣기
 kubectl explain pods // 파드 정보
 ```
 
-![image](https://github.com/user-attachments/assets/2b52d007-5f2f-4ea2-98c3-439c86684eab)
-
   
