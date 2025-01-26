@@ -8,8 +8,7 @@
 
 ---
 
-### 스크립트
-
+### 스크립트 파드 삭제 , 생성 간략 예시
 
 ```
 kubectl create deploy tc --image=consol/tomcat-7.0 --replicas=5
@@ -24,3 +23,27 @@ kubectl get pod,svc // 서비스 확인
 ```
 
 ![image](https://github.com/user-attachments/assets/888b37c1-0d9c-4bb5-8049-0f9e619e6270)
+
+
+--- 
+### 파드 생성 스크립트
+1. yaml 작성
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: http-go
+spec:
+  containers:
+  - name: http-go
+    image: gasbugs/http-go
+    ports:
+    - containerPort: 8080
+```
+2. 파드 생성 , 상세 조회
+```
+kubectl create -f go-http-pod.yaml
+kubectl get pod http-go -o yaml
+
+```
+  
