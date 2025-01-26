@@ -5,3 +5,22 @@
 - `kubeadm`: 클러스터를 부트스트랩하는 명령이다. 클러스터를 초기화하고 관리하는 기능을 갖는다.
 - `kubelet`: 클러스터의 모든 머신에서 실행되는 파드와 컨테이너 시작과 같은 작업을 수행하는 컴포넌트이다. 데몬으로 동작하며 컨테이너를 관리한다.
 - `kubectl`: 클러스터와 통신하기 위한 커맨드 라인 유틸리티이다. 클라이언트 전용 프로그램이다
+
+---
+
+### 스크립트
+
+
+```
+kubectl create deploy tc --image=consol/tomcat-7.0 --replicas=5
+kubectl expose deploy tc --type=NodePort --port=80 --target-port=8080 // 구글 쿠버네티스랑 다름 , 아래 1번 사진으로 통신
+
+
+kubectl get deployments // 
+kubectl delete deployment tc 
+
+kubectl delete pod -l app=tc // tc 파드 삭제
+kubectl get pod,svc // 서비스 확인
+```
+
+![image](https://github.com/user-attachments/assets/888b37c1-0d9c-4bb5-8049-0f9e619e6270)
