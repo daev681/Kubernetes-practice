@@ -52,8 +52,19 @@ kubectl logs http-go // 파드 로그 조회
 kubectl annotate pod http-go // 주석 넣기
 
 
+```
+
+3. 레이블 조회 , 추가
+```
+kubectl get pod --show-label // 전체 레이블
+
+kubectl get pod -L en // 부분 레이블
+kubectl get pod -L creation_method
+
+kubectl label pod http-go test=foo // 레이블 추가
+kubectl label pod http-go test- // test 레이블 삭제
+
 
 
 ```
-
   
