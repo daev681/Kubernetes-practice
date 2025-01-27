@@ -70,4 +70,14 @@ kubectl label pod http-go test- // test 레이블 삭제
 
 
 ```
+
+4. 스케일링
+```
+-- 레프리카 set
+
+kubectl edit rs nginx-me (메타데이터)
+
+```
+
+
   
