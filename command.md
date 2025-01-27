@@ -43,6 +43,8 @@ spec:
 2. 파드 생성 , 상세 조회 , 포트포워딩
 ```
 kubectl create -f go-http-pod.yaml
+
+kubectl exec <container> -- curl 127.0.0.1:8080 // 성공확인
 kubectl get pod http-go -o yaml // 파드 상세 조회
 kubectl port-forward http-go 8080 // 포트포워딩
 kubectl delete -f go-http-pod.yaml // 파드 삭제
@@ -51,7 +53,7 @@ kubectl annotate pod http-go // 주석 넣기
 
 
 
-kubectl explain pods // 파드 정보
+
 ```
 
   
