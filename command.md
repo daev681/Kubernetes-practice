@@ -58,8 +58,11 @@ kubectl annotate pod http-go // 주석 넣기
 ```
 kubectl get pod --show-label // 전체 레이블
 
-kubectl get pod -L en // 부분 레이블
+kubectl get pod -L env // 부분 레이블
 kubectl get pod -L creation_method
+kubectl get pod -l 'env=prod'
+kubectl get pod -l 'env=prod,creation_method=manual'
+
 
 kubectl label pod http-go test=foo // 레이블 추가
 kubectl label pod http-go test- // test 레이블 삭제
