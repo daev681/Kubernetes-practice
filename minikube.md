@@ -43,6 +43,8 @@ minikube version
 ### 3.1 Minikube 시작 (싱글 노드)
 ```bash
 minikube start --driver=docker
+
+minikube start --nodes 3 --driver=docker
 ```
 
 🚀 **정상적으로 실행되었는지 확인**  
